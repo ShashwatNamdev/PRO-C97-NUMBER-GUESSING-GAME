@@ -1,22 +1,23 @@
 import random
-from urllib.parse import uses_fragment
 
-realNumber = int(random.randint(1,7))
-userNumber = int(input("Guess the number:- "))
-chances = 0
+realNumber = int(random.randint(1,9))
+chances = int(0)
 
-if userNumber < realNumber:
-    print("Your guess was too low. Guess the number higher than ",userNumber)
-    chances += 1
-    userNumber
+while chances <= 4:
 
-if userNumber > realNumber:
-    print("Your guess was too high. Guess the number lower than ",userNumber)
-    chances += 1
-    userNumber
+    userNumber = int(input("Guess the number:- "))
 
-if userNumber == realNumber:
-    print("Congratulations YOU WON!!!")
+    if userNumber < realNumber:
+        print("Your guess was too low. Guess the number higher than ",userNumber)
+        chances = chances + 1
 
-if chances == 5:
-    print("YOU LOSE!!! The number was ",realNumber)
+    elif userNumber > realNumber:
+        print("Your guess was too high. Guess the number lower than ",userNumber)
+        chances = chances + 1
+
+    elif userNumber == realNumber:
+        print("Congratulations YOU WON!!!")
+        chances = 6
+
+if(chances == 5):
+    print("You LOSE! The number was ",realNumber)
